@@ -3563,7 +3563,7 @@ COMMON STYLE END
 }
 .dominators-section .dominator-info-wrap {
   position: relative;
-  padding: 37px 26px 44px 26px;
+  padding: 37px 20px 44px 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
