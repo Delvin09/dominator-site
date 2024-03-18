@@ -29,7 +29,7 @@ html {
   overflow-x: hidden;
   overflow-y: auto;
 }
-html.modal-opened {
+html.menu-opened, html.modal-opened {
   overflow: hidden;
 }
 
@@ -829,6 +829,30 @@ body.menu-opened, body.modal-opened {
 }
 .field-wrap textarea {
   resize: none;
+}
+
+.video-image video {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.video-image video.mob {
+  display: block;
+}
+.video-image video.desk {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .video-image video.mob {
+    display: none;
+  }
+  .video-image video.desk {
+    display: block;
+  }
 }
 
 .video-modal .button {
@@ -6741,6 +6765,20 @@ COMMON STYLE END
   width: auto;
   height: auto;
   vertical-align: bottom;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+@media only screen and (min-width: 992px) {
+  .footer-section .social-wrap a.social-link:hover img {
+    -moz-transform: scale(-1.1, 1.1);
+    -o-transform: scale(-1.1, 1.1);
+    -ms-transform: scale(-1.1, 1.1);
+    -webkit-transform: scale(-1.1, 1.1);
+    transform: scale(-1.1, 1.1);
+  }
 }
 .footer-section .footer-bottom-block {
   padding: 37px 0 70px;
