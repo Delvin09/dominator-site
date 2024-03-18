@@ -1,3 +1,7 @@
+const body = document.querySelector('body');
+const html = document.querySelector('html');
+const mqlMobile = window.matchMedia('(max-width: 991px)');
+
 window.addEventListener('load', (event) => {
 
     var vid = document.getElementById("hero-video");
@@ -5,12 +9,25 @@ window.addEventListener('load', (event) => {
 
     let menuBtn = document.querySelector('.nav-btn-js');
     let menu = document.querySelector('.header-section');
+    let menuLinks = document.querySelector('.header-section .menu a');
 
     menuBtn.addEventListener('click', function () {
         menuBtn.classList.toggle('active');
         menu.classList.toggle('active');
-        document.body.classList.toggle('menu-opened');
+        body.classList.toggle('menu-opened');
+        html.classList.toggle('menu-opened');
     })
+
+    if (window.innerWidth < mqlMobile) {
+        console.log(window.innerWidth < mqlMobile);
+        menuLinks.forEach((link) => link.addEventListener("click", () => {
+            console.log('click', link);
+            menu.classList.remove("active");
+            menuBtn.classList.remove("active");
+            body.classList.toggle('menu-opened');
+            html.classList.toggle('menu-opened');
+        }) );
+    }
 
     smoothLinksScroll();
 
@@ -78,7 +95,7 @@ document.addEventListener('element-show', function(e) {
 });
 
 function smoothLinksScroll() {
-    document.querySelectorAll('.header-section .menu a[href^="#"]').forEach(link => {
+    document.querySelectorAll('.menu a[href^="#"]').forEach(link => {
 
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -94,6 +111,14 @@ function smoothLinksScroll() {
                 top: offsetPosition,
                 behavior: 'smooth'
             });
+
+            if (window.innerWidth < 992) {
+                console.log(window.innerWidth < 992);
+                document.querySelector('.nav-btn-js').classList.remove("active");
+                document.querySelector('.header-section').classList.remove("active");
+                body.classList.remove('menu-opened');
+                html.classList.remove('menu-opened');
+            }
         });
     });
 }
@@ -431,9 +456,6 @@ function buttonHoverAnimation() {
 }
 
 buttonHoverAnimation();
-
-var html = document.documentElement;
-var body = document.body;
 
 var scroller = {
     target: document.querySelector("#scroll-container"),
