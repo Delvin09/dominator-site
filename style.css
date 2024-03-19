@@ -5319,6 +5319,22 @@ COMMON STYLE END
   -webkit-animation: 2s linear 1 normal forwards running text-flicker;
   animation: 2s linear 1 normal forwards running text-flicker;
 }
+.road-map-section .road-map-item:first-child .text li:not(:last-child) {
+  list-style: none;
+  position: relative;
+}
+.road-map-section .road-map-item:first-child .text li:not(:last-child):before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  background-image: url("./assets/images/home-page/check-solid.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 .road-map-section .element-show.road-map-item:nth-child(odd) .road-map-card {
   opacity: 1;
   -webkit-animation: 1s linear 1 normal both transform-left;
