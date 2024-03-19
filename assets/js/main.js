@@ -4,9 +4,8 @@ const mqlMobile = window.matchMedia('(max-width: 991px)');
 
 window.addEventListener('load', (event) => {
 
-    if(document.getElementById('hero-video') != null) {
-        document.getElementById('hero-video').play();
-    }
+    var vid = document.getElementById("hero-video");
+    vid.muted = true;
 
     let menuBtn = document.querySelector('.nav-btn-js');
     let menu = document.querySelector('.header-section');
@@ -551,7 +550,7 @@ function onResize() {
 
 function openGame(id, openMarketplace) {
     var link = document.getElementById(id);
-    var url = "game/index.html" + window.location.search;
+    var url = "https://game.dmntr.io" + window.location.search;
     if (openMarketplace) {
         if (window.location.search && window.location.search.length > 0)
             url += "&";
