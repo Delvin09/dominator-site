@@ -478,6 +478,32 @@
         }
     }
 
+    .road-map-item {
+        &:first-child {
+            .text {
+                li {
+                    &:not(:last-child) {
+                        list-style: none;
+                        position: relative;
+
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            left: -15px;
+                            top: 6px;
+                            width: 10px;
+                            height: 10px;
+                            background-image: url("./assets/images/home-page/check-solid.svg");
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                            background-position: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .element-show {
         &.road-map-item {
             &:nth-child(odd) {
