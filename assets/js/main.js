@@ -4,8 +4,9 @@ const mqlMobile = window.matchMedia('(max-width: 991px)');
 
 window.addEventListener('load', (event) => {
 
-    var vid = document.getElementById("hero-video");
-    vid.muted = true;
+    if(document.getElementById('hero-video') != null) {
+        document.getElementById('hero-video').play();
+    }
 
     let menuBtn = document.querySelector('.nav-btn-js');
     let menu = document.querySelector('.header-section');
@@ -69,6 +70,13 @@ function initPopupsOpeners() {
                     modal.style.display= 'block';
                     body.classList.add('modal-opened');
                     html.classList.add('modal-opened');
+
+
+                    modal.querySelectorAll('video').forEach(function(item) {
+                        item.muted = false;
+                    });
+
+
                 }
             }
         });
@@ -82,6 +90,10 @@ function initPopupsOpeners() {
             modal.style.display = 'none';
             body.classList.remove('modal-opened');
             html.classList.remove('modal-opened');
+
+            modal.querySelectorAll('video').forEach(function(item) {
+                item.muted = true;
+            });
         });
     });
 }
