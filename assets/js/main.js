@@ -4,8 +4,9 @@ const mqlMobile = window.matchMedia('(max-width: 991px)');
 
 window.addEventListener('load', (event) => {
 
-    var vid = document.getElementById("hero-video");
-    vid.muted = true;
+    if(document.getElementById('hero-video') != null) {
+        document.getElementById('hero-video').play();
+    }
 
     let menuBtn = document.querySelector('.nav-btn-js');
     let menu = document.querySelector('.header-section');
